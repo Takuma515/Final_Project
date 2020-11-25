@@ -5,9 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class LiquorShopTest{
-
+  /* add/reduceStock()のテスト */
   @Test public void stockmethodTest() {
-    /* add/reduceStock()のテスト */
     int add_num = 10, sub_num = 6;
     String query = "Wine";
     LiquorShop ls = LiquorShop.getInstance();

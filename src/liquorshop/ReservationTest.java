@@ -12,9 +12,10 @@ public class ReservationTest{
     r.setItemNum("Wine", itemNum);
     r.setItemNum("Sake", itemNum+1);
     r.print();
-    r.setItemNum("Wine", -1);
+    r.setItemNum("Wine", -1); // エラー
   }
 
+  /* 出荷時のテスト */
   @Test public void canShipTest() {
     LiquorShop ls = LiquorShop.getInstance();
     Reservation r = new Reservation(10);

@@ -7,9 +7,9 @@ public class Main{
     Clerk clerk = new Clerk();
     int cnt = 0;   //日数を数える
     boolean isOperation = true;
-    int select_num = 0;
+    int input_num;
     Scanner scan = new Scanner(System.in);
-    while(cnt<1) {
+    while(cnt<3) {
       /* 在庫の追加と予約の処理*/
       clerk.purchase();
       clerk.processResvList();
@@ -19,8 +19,8 @@ public class Main{
       while(isOperation) {
         System.out.println("要件を選択してください");
         System.out.println("1.注文, 2.検索, 3.予約のキャンセル");
-        select_num = scan.nextInt();
-        switch (select_num) {
+        input_num = scan.nextInt();
+        switch (input_num) {
           case 1:
             clerk.processOrder(scan);
             break;
@@ -36,12 +36,13 @@ public class Main{
         }
         System.out.println("操作を続けますか？");
         System.out.println("1.はい, 2.いいえ");
-        select_num = scan.nextInt();
-        switch (select_num) {
+        input_num = scan.nextInt();
+        switch (input_num) {
         case 1:
           // 何もしない
           break;
         case 2:
+          // 操作終了
           isOperation = false;
           break;
         default:
@@ -49,6 +50,7 @@ public class Main{
           break;
         }
       }
+      //その日の操作終わり
       cnt++;
     }
   }
