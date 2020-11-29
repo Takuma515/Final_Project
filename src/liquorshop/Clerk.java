@@ -1,6 +1,7 @@
 package liquorshop;
 
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.TreeMap;
 
@@ -17,8 +18,13 @@ public class Clerk{
 
   /* 仕入れ */
   public void purchase() {
-    ls.addStock("Sake", 10);
-    ls.addStock("Wine", 5);
+    Random rand = new Random();
+    int rand_num;
+    for(String key : stockList.keySet()) {
+      rand_num = rand.nextInt(10); // 0~9の乱数
+      ls.addStock(key, rand_num);
+    }
+    ls.searchItem("All");
   }
 
   /* 予約リストの処理*/
@@ -30,7 +36,7 @@ public class Clerk{
         System.out.println("以下の予約を処理します");
         resv.print();
         resv.ship(ls);  // 出荷処理はReservationに任せる
-        System.out.println("出荷しました");
+        resvList.remove(key); //予約の削除
       }
     }
     System.out.println("予約リストの処理が完了しました");
@@ -86,7 +92,7 @@ public class Clerk{
   }
 
   /* 予約のキャンセル処理 */
-  public void calcelResv(Scanner scan) {
+  public void cancelResv(Scanner scan) {
     if(resvList.size()==0) {
       System.out.println("予約が存在しません");
       return;

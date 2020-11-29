@@ -17,7 +17,7 @@ public class WineTest{
   /* setStockNum()のテスト */
   @Test public void StockNumTest() {
     Alcohol al = new Wine("Wine",1000);
-    al.setStockNum(-1);
+    al.setStockNum(-1);                    // Error
     assertEquals(0,al.getStockNum());
   }
 }

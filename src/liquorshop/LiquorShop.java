@@ -11,6 +11,7 @@ class LiquorShop{
     /* 各商品インスタンスの生成と格納 */
     stockList.put("Sake", new Sake("Sake",500));
     stockList.put("Wine", new Wine("Wine",1000));
+    stockList.put("Beer", new Beer("Beer",300));
   }
 
   /* 必ず同一のインスタンスを返す */
@@ -28,11 +29,11 @@ class LiquorShop{
 
   /* 在庫の検索 */
   public void searchItem(String query) {
-    System.out.println("商品名 : 値段 , 在庫数");
+    System.out.println("商品名,値段,在庫数を表示します");
     if(query.equals("All")) {
       for(String key : stockList.keySet()) {
         Alcohol value = stockList.get(key);
-        System.out.println(value.getName() + " : " + value.getPrice() + "円 , " + value.getStockNum());
+        System.out.println(value.getName() + ", " + value.getPrice() + "円, " + value.getStockNum());
       }
     }else {
       Alcohol value = stockList.get(query);
@@ -40,7 +41,7 @@ class LiquorShop{
         System.out.println("商品が存在しません");
         return;
       }
-      System.out.println(value.getName() + " : " + value.getPrice() + "円 , " + value.getStockNum());
+      System.out.println(value.getName() + " , " + value.getPrice() + "円 , " + value.getStockNum());
     }
   }
 

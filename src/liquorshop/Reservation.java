@@ -3,7 +3,7 @@ package liquorshop;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Reservation{
+class Reservation{
   private int resvNum;
   private Map<String, Integer> itemsNum = new TreeMap<String, Integer>();  //予約商品リスト
   private int totalPrice = 0;

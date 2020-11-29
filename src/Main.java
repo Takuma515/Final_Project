@@ -5,11 +5,12 @@ import liquorshop.Clerk;
 public class Main{
   public static void main(String[] args){
     Clerk clerk = new Clerk();
-    int cnt = 0;   //日数を数える
+    int cnt = 1;   //日数を数える
     boolean isOperation = true;
     int input_num;
     Scanner scan = new Scanner(System.in);
     while(cnt<3) {
+      System.out.println(cnt + "日目の開始");
       /* 在庫の追加と予約の処理*/
       clerk.purchase();
       clerk.processResvList();
@@ -28,7 +29,7 @@ public class Main{
             clerk.searchItem(scan);
             break;
           case 3:
-            clerk.calcelResv(scan);
+            clerk.cancelResv(scan);
             break;
           default:
             System.out.println("エラー: 想定外の入力です");
@@ -51,6 +52,7 @@ public class Main{
         }
       }
       //その日の操作終わり
+      System.out.println(cnt + "日目の終了");
       cnt++;
     }
   }
